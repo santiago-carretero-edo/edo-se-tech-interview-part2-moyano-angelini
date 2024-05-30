@@ -80,7 +80,7 @@ public class GameService {
 
     public void deployShips(String gameId, DeployShipsCommand command) {
         Game game = repository.getGame(gameId).orElseThrow(() -> new GameNotFoundException(gameId));
-
+        boolean shipsPlaced = ShipService.deployShips(command,game);
         // TODO implement this method
 
         repository.saveOrUpdateGame(game);
